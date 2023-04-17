@@ -1,0 +1,5 @@
+node_modules/*
+node_modules/ace-builds/*
+node_modules/ace-builds/src-min-noconflict/snippets
+!node_modules/ace-builds
+!node_modules/ace-builds/src-min-noconflict
