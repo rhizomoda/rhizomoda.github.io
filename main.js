@@ -1,3 +1,19 @@
+var EXAMPLE_DOCUMENT = "\nQUESTION: Why?\n" +
+    "NOTE: No reason.\n\n" +
+    "QUESTION: What the hell is a rhizo-moda?\n" +
+    "NOTE: That's the wrong question. The right question is 'what can a rhizo-moda do for you'?\n\n" +
+    "PROJECT: All in a day's work\n" +
+    "DONE: Buy cheese\n" +
+    "TODO: Make friends\n" +
+    "IN PROGRESS: Care for family\n\n" +
+    "TOPIC: Keywords\n" +
+    "SECTION: More keywords :-)\n" +
+    "I.E. \"That is\"\n" +
+    "E.G. \"For example\"\n\n" +
+    "MAYBE...? Dunno.\n" +
+    "TWEAKS: Making small adjustments\n" +
+    "WAITING FOR: Sweet release/...\n\n";
+
 function setFontSize(editor, fontSize) {
     editor.setOptions({
         fontSize: fontSize
@@ -27,35 +43,19 @@ function setTabSize(editor, tabSize) {
     });
 }
 
-var exampleDocument = "\nQUESTION: Why?\n" +
-    "NOTE: No reason.\n\n" +
-    "QUESTION: What the hell is a rhizo-moda?\n" +
-    "NOTE: That's the wrong question. The right question is 'what can a rhizo-moda do for you'?\n\n" +
-    "PROJECT: All in a day's work\n" +
-    "DONE: Buy cheese\n" +
-    "TODO: Make friends\n" +
-    "IN PROGRESS: Care for family\n\n" +
-    "TOPIC: Keywords\n" +
-    "SECTION: More keywords :-)\n" +
-    "I.E. \"That is\"\n" +
-    "E.G. \"For example\"\n\n" +
-    "MAYBE...? Dunno.\n" +
-    "TWEAKS: Making small adjustments\n" +
-    "WAITING FOR: Sweet release/...\n\n";
-
-function loadSavedFile(session, documentName) {
-    var value = localStorage.getItem(documentName);
+function loadSavedFile(session, filename) {
+    var value = localStorage.getItem(filename);
     if (typeof value == "string") {
         session.setValue(value);
-        localStorage.setItem(documentName + Date.now(), value);
+        localStorage.setItem(filename + Date.now(), value);
     } else {
-        session.setValue(exampleDocument);
+        session.setValue(EXAMPLE_DOCUMENT);
     }
 }
 
-function enableAutoSave(session, documentName) {
+function enableAutoSave(session, filename) {
     session.on("change", function () {
-        localStorage.setItem(documentName, session.getValue());
+        localStorage.setItem(filename, session.getValue());
     });
 }
 
@@ -86,7 +86,6 @@ ace.define("ace/mode/rhizomoda_highlight_rules", ["require", "exports", "module"
             this.normalizeRules();
         };
         RhizomodaHighlightRules.metaData = {
-            fileTypes: ["document"],
             name: "rhizomoda"
         };
         oop.inherits(RhizomodaHighlightRules, TextHighlightRules);
@@ -128,9 +127,8 @@ setWrapColumn(editor, 100);
 setTabSize(editor, 8);
 
 var session = editor.getSession();
+var filename = "rhizo.document";
 
-var documentName = "rhizo.document";
-
-loadSavedFile(session, documentName);
-enableAutoSave(session, documentName);
+loadSavedFile(session, filename);
+enableAutoSave(session, filename);
 document.addEventListener("keydown", disableSaveDialog);
