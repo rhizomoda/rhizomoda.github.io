@@ -1,10 +1,14 @@
 node_modules/*
 node_modules/ace-builds/*
-node_modules/ace-builds/src-min-noconflict/snippets
+node_modules/ace-builds/src-min-noconflict/*
+node_modules/ace-builds/src-min-noconflict/snippets/*
 node_modules/mithril/*
 !node_modules/ace-builds
 !node_modules/ace-builds/LICENSE
 !node_modules/ace-builds/src-min-noconflict
+!node_modules/ace-builds/src-min-noconflict/ace.js
+!node_modules/ace-builds/src-min-noconflict/ext-searchbox.js
+!node_modules/ace-builds/src-min-noconflict/theme-ambiance.js
 !node_modules/mithril
-!node_modules/mithril/mithril.min.js
 !node_modules/mithril/LICENSE
+!node_modules/mithril/mithril.min.js
