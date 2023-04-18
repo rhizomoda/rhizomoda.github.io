@@ -1,3 +1,11 @@
+.ace_editor .ace_marker-layer .ace_error_bracket {
+    display: none;
+}
+
+.ace_editor .ace_marker-layer .ace_bracket {
+    display: none;
+}
+
 body {
     display: grid;
     grid-template-columns: auto auto;
