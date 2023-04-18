@@ -1,4 +1,1 @@
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - vendor/
+exclude: []
