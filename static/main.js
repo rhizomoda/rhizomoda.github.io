@@ -1,49 +1,40 @@
-ace.define("ace/mode/rhizomoda",
-    ["require", "exports", "module", "ace/lib/oop", "ace/mode/folding/cstyle", "ace/mode/text", "ace/mode/text_highlight_rules"],
+ace.define(
+    "ace/mode/rhizomoda",
+    [
+        "require",
+        "exports",
+        "ace/lib/oop",
+        "ace/mode/text_highlight_rules",
+        "ace/mode/folding/cstyle",
+        "ace/mode/text"
+    ],
     function (require, exports) {
         "use strict";
-
         var oop = require("../lib/oop");
-        var FoldMode = require("./folding/cstyle").FoldMode;
-        var TextMode = require("./text").Mode;
-        var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 
-        function HighlightRules() {
+        function highlightRules() {
             this.$rules = {
                 "start": [{
                     token: "keyword",
-                    regex: /(E\.?G|I\.?E|IN PROGRESS|MAYBE|NAME|NOTE|TODO|TWEAKS|WAITING FOR)[.!?,:;]+/
-                }, {
-                    token: "keyword.operator",
-                    regex: /(\:\w+\:|\<[\/\\]?3|[\(\)\\|\*\$][\-\^]?[\:\;\=]|[\:\;\=B8][\-\^]?[3DOPp\@\$\*\\\)\(\/\|])(?=\s|[\!\.\?]|$)/
+                    regex: /(IN PROGRESS|MAYBE|NAME|NOTE|TODO|TWEAKS|WAITING FOR)[.!?,:;]+/
                 }, {
                     token: "string",
-                    regex: /(DONE|PROJECT|QUESTION|SECTION|TOPIC|WIDGET)[.!?,:;]+/
+                    regex: /(DONE|PROJECT|QUESTION|SECTION|TOPIC)[.!?,:;]+/
                 }]
             };
-
             this.normalizeRules();
         };
-
-        HighlightRules.metaData = {
-            fileTypes: ['document'],
-            name: 'rhizomoda'
-        };
-
-        oop.inherits(HighlightRules, TextHighlightRules);
+        oop.inherits(highlightRules, require("./text_highlight_rules").TextHighlightRules);
 
         function Mode() {
             this.$behaviour = this.$defaultBehaviour;
-            this.foldingRules = new FoldMode();
-            this.HighlightRules = HighlightRules;
+            this.foldingRules = new require("./folding/cstyle").FoldMode();
+            this.HighlightRules = highlightRules;
         };
-
-        oop.inherits(Mode, TextMode);
-
+        oop.inherits(Mode, require("./text").Mode);
         (function () {
             this.$id = "ace/mode/rhizomoda";
         }).call(Mode.prototype);
-
         exports.Mode = Mode;
     }
 );
@@ -136,12 +127,10 @@ $(function () {
         "fill-099",
         "fill-103",
         "fill-108",
-        "fill-112",
         "fill-114",
         "fill-115",
         "fill-134",
-        "fill-135",
-        "fill-140"
+        "fill-135"
     ];
 
     var wallpaper = wallpapers[Math.floor(Math.random() * wallpapers.length)];
