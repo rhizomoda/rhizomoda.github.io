@@ -4,11 +4,10 @@
  */
 
 :root {
-    --jdmenu-bg-color: rgba(250, 250, 250, 0.5);
-    --jdmenu-border-color: rgba(200, 200, 200, 0.5);
-    --jdmenu-focus-color: rgba(235, 235, 235, 0.5);
-    --jdmenu-shortcut-color: rgb(100, 100, 100, 0.5);
-    /* Also for disabled items */
+    --jdmenu-bg-color: rgba(200, 200, 200, 0.8);
+    --jdmenu-border-color: rgb(200, 200, 200);
+    --jdmenu-focus-color: rgba(94, 94, 228, 0.5);
+    --jdmenu-shortcut-color: rgb(100, 100, 100);
     --jdmenu-font-size: 15px;
     --jdmenu-font-family: monospace;
     --jdmenu-font-color: rgb(0, 0, 0);

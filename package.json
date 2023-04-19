@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "ace-builds": "^1.17.0",
-    "jquery": "^3.6.4",
-    "mithril": "^2.2.2"
-  }
-}
