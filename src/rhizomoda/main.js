@@ -128,8 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "fill-103",
     "fill-108",
     "fill-114",
-    "fill-115",
-    "fill-134"
+    "fill-115"
   ];
 
   var wallpaper = wallpapers[Math.floor(Math.random() * wallpapers.length)];
