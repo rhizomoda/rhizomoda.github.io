@@ -101,16 +101,16 @@ hookup(secondary);
 hookup(tertiary);
 
 function hookup(p) {
-    p.session = p.editor.getSession();
+    var session = p.editor.getSession();
     var value = localStorage.getItem(p.filename);
 
     if (typeof value == "string") {
         localStorage.setItem(p.filename + Date.now(), value);
-        p.session.setValue(value);
+        session.setValue(value);
     }
 
-    p.session.on("change", function () {
-        localStorage.setItem(p.filename, p.session.getValue());
+    session.on("change", function () {
+        localStorage.setItem(p.filename, session.getValue());
     });
 }
 
