@@ -25,6 +25,14 @@ main {
     display: none;
 }
 
+.whiteboard {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
 .fill-071 {
     background-image: url("wallpapers/071.png");
 }

@@ -51,6 +51,10 @@ ace.define("ace/mode/rhizomoda",
 var root = document.body;
 
 m.render(root, [
+    m("div", {
+        class: "whiteboard",
+        id: "whiteboard"
+    }),
     m("main", [
         m("div", {
             class: "editor",
