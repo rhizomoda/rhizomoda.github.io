@@ -18,7 +18,7 @@ ace.define("ace/mode/rhizomoda",
                     regex: /(\:\w+\:|\<[\/\\]?3|[\(\)\\|\*\$][\-\^]?[\:\;\=]|[\:\;\=B8][\-\^]?[3DOPp\@\$\*\\\)\(\/\|])(?=\s|[\!\.\?]|$)/
                 }, {
                     token: "string",
-                    regex: /(DONE|PROJECT|QUESTION|SECTION|TOPIC)[.!?,:;]+/
+                    regex: /(DONE|PROJECT|QUESTION|SECTION|TOPIC|WIDGET)[.!?,:;]+/
                 }]
             };
 
@@ -140,7 +140,6 @@ $(function () {
         "fill-114",
         "fill-115",
         "fill-122",
-        "fill-133",
         "fill-134",
         "fill-135",
         "fill-140"
