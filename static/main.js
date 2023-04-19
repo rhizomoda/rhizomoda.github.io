@@ -135,7 +135,6 @@ var wallpapers = [
     "fill-114",
     "fill-115",
     "fill-120",
-    "fill-121",
     "fill-122",
     "fill-133",
     "fill-134",
