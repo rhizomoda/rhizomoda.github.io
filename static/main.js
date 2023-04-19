@@ -1,37 +1,65 @@
-ace.define("ace/mode/rhizomoda", ["require", "exports", "module", "ace/lib/oop", "ace/mode/text", "ace/mode/text_highlight_rules"],
+ace.define("ace/mode/rhizomoda",
+    ["require", "exports", "module", "ace/lib/oop", "ace/mode/folding/fold_mode", "ace/mode/text", "ace/mode/text_highlight_rules"],
     function (require, exports) {
         "use strict";
 
         var oop = require("../lib/oop");
+        var BaseFoldMode = require("./folding/fold_mode").FoldMode;
         var TextMode = require("./text").Mode;
         var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 
-        function RhizomodaHighlightRules() {
+        function FoldMode(markers) {
+            this.foldingStartMarker = new RegExp("([\\[{])(?:\\s*)$|(" + markers + ")(?:\\s*)(?:#.*)?$");
+        }
+
+        oop.inherits(FoldMode, BaseFoldMode);
+
+        (function () {
+            this.getFoldWidgetRange = function (session, foldStyle, row) {
+                var line = session.getLine(row);
+                var match = line.match(this.foldingStartMarker);
+
+                if (match) {
+                    if (match[1]) {
+                        return this.openingBracketBlock(session, match[1], row, match.index);
+                    }
+                    if (match[2]) {
+                        return this.indentationBlock(session, row, match.index + match[2].length);
+                    }
+
+                    return this.indentationBlock(session, row);
+                }
+            };
+
+        }).call(FoldMode.prototype);
+
+        function HighlightRules() {
             this.$rules = {
                 "start": [{
                     token: "string",
                     regex: /(DONE|PROJECT|QUESTION|SECTION|TOPIC)[.!?,:;]+/
                 }, {
                     token: "keyword",
-                    regex: /(E\.?G|I\.?E|IN PROGRESS|MAYBE|NOTE|TODO|TWEAKS|WAITING FOR)[.!?,:;]+/
+                    regex: /(E\.?G|I\.?E|IN PROGRESS|MAYBE|NAME|NOTE|TODO|TWEAKS|WAITING FOR)[.!?,:;]+/
                 }, {
                     token: "keyword.operator",
-                    regex: /(\:\w+\:|\<[\/\\]?3|[\(\)\\\D|\*\$][\-\^]?[\:\;\=]|[\:\;\=B8][\-\^]?[3DOPp\@\$\*\\\)\(\/\|])(?=\s|[\!\.\?]|$)/
+                    regex: /(\:\w+\:|\<[\/\\]?3|[\(\)\\|\*\$][\-\^]?[\:\;\=]|[\:\;\=B8][\-\^]?[3DOPp\@\$\*\\\)\(\/\|])(?=\s|[\!\.\?]|$)/
                 }]
             };
 
             this.normalizeRules();
         };
 
-        RhizomodaHighlightRules.metaData = {
+        HighlightRules.metaData = {
             fileTypes: ['document'],
             name: 'rhizomoda'
         };
 
-        oop.inherits(RhizomodaHighlightRules, TextHighlightRules);
+        oop.inherits(HighlightRules, TextHighlightRules);
 
         function Mode() {
-            this.HighlightRules = RhizomodaHighlightRules;
+            this.foldingRules = new FoldMode("\\:");
+            this.HighlightRules = HighlightRules;
             this.$behaviour = this.$defaultBehaviour;
         };
 
