@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    padding: 0;
 }
 
 main {
@@ -75,10 +76,6 @@ main {
 
 .fill-115 {
     background-image: url("wallpapers/115.png");
-}
-
-.fill-122 {
-    background-image: url("wallpapers/122.png");
 }
 
 .fill-134 {

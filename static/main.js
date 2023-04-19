@@ -53,8 +53,8 @@ $(function () {
 
     m.render(root, [
         m("div", {
-            class: "whiteboard",
-            id: "mywhiteboard"
+            class: "menubar",
+            id: "mymenubar"
         }),
         m("main", [
             m("div", {
@@ -139,7 +139,6 @@ $(function () {
         "fill-112",
         "fill-114",
         "fill-115",
-        "fill-122",
         "fill-134",
         "fill-135",
         "fill-140"
@@ -148,4 +147,10 @@ $(function () {
     var wallpaper = wallpapers[Math.floor(Math.random() * wallpapers.length)];
     document.body.classList.add(wallpaper);
 
+    new MenuBar(document.getElementById("mymenubar"), [{
+        text: "Widgets",
+        subMenuItems: [{
+            text: "Nothing"
+        }]
+    }]);
 });
