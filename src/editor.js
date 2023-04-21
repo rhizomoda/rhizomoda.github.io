@@ -18,6 +18,7 @@ function initializeEditor(el, filename) {
     localStorage.setItem(filename + Date.now(), document);
     session.setValue(document);
   }
+  // autosave
   session.on("change", function () {
     localStorage.setItem(filename, session.getValue());
   });

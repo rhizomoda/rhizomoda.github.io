@@ -1,11 +1,8 @@
 // main.js
-
 document.addEventListener("DOMContentLoaded", function () {
-
   initializeEditor("myprimary", "index.document");
   initializeEditor("mysecondary", "moda.document");
   initializeEditor("mytertiary", "rhizo.document");
-
   var wallpapers = [
     "fill-071",
     "fill-074",
