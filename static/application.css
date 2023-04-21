@@ -1,0 +1,82 @@
+/* application.css */
+
+body {
+  margin: 0;
+}
+
+main {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  height: 600px;
+  left: 50%;
+  margin: -300px 0 0 -400px;
+  position: absolute;
+  top: 50%;
+  width: 800px;
+}
+
+.editor {
+  grid-column: auto;
+}
+
+.ace_editor .ace_marker-layer .ace_error_bracket {
+  display: none;
+}
+
+.ace_editor .ace_marker-layer .ace_bracket {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+/* wallpaper fills */
+
+.fill-071 {
+  background-image: url("fill-071.png");
+}
+
+.fill-074 {
+  background-image: url("fill-074.png");
+}
+
+.fill-075 {
+  background-image: url("fill-075.png");
+}
+
+.fill-076 {
+  background-image: url("fill-076.png");
+}
+
+.fill-080 {
+  background-image: url("fill-080.png");
+}
+
+.fill-087 {
+  background-image: url("fill-087.png");
+}
+
+.fill-096 {
+  background-image: url("fill-096.png");
+}
+
+.fill-099 {
+  background-image: url("fill-099.png");
+}
+
+.fill-103 {
+  background-image: url("fill-103.png");
+}
+
+.fill-108 {
+  background-image: url("fill-108.png");
+}
+
+.fill-114 {
+  background-image: url("fill-114.png");
+}
+
+.fill-115 {
+  background-image: url("fill-115.png");
+}
