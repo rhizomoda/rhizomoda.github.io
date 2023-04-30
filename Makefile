@@ -1,2 +1,2 @@
 all:
-	clj -M --main cljs.main --compile rhizomoda.core --repl
+	clj -M -m cljs.main -co build.edn -c
