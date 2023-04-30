@@ -2,27 +2,37 @@
 <html lang="en">
 
 <head>
+  <meta charset="utf-8">
   <title>rhizo-moda</title>
-  <meta name="description" content="rhizo-moda is great!">
-  <link rel="icon" type="image/png" href="static/favicon-128.png" sizes="128x128">
-  <link rel="stylesheet" href="static/application.css">
-  <script src="static/bundle.js"></script>
+  <meta name="description" content="rhizo-moda is great">
+  <link rel="icon" type="image/png" href="assets/icons/favicon-128.png" sizes="128x128">
+  <link rel="stylesheet" href="assets/stylesheets/jdmenubar.css">
+  <link rel="stylesheet" href="assets/stylesheets/application.css">
+  <script src="assets/javascript/jdmenubar.min.js"></script>
+  <script src="assets/javascript/ace.min.js"></script>
+  <script src="assets/javascript/ext-linking.min.js"></script>
+  <script src="assets/javascript/ext-searchbox.min.js"></script>
+  <script src="assets/javascript/theme-ambiance.min.js"></script>
 </head>
 
 <body>
-  <div id="mymenubar" class="menubar"></div>
+  <div class="menu" id="menu"></div>
+
   <main>
-    <div id="myprimary" class="editor"></div>
-    <div id="mysecondary" class="editor"></div>
-    <div id="mytertiary" class="editor"></div>
+    <div class="editor" id="primary"></div>
+    <div class="editor" id="secondary"></div>
+    <div class="editor" id="tertiary"></div>
   </main>
+
   <div class="widgets">
-    <div id="myvirtualsky" class="hidden">
+    <div class="hidden" id="virtualsky">
       <iframe width="500" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
         src="https://virtualsky.lco.global/embed/index.html?longitude=-73.56&latitude=45.51&projection=stereo&live=true"
         allowTransparency="true"></iframe>
     </div>
   </div>
+
+  <script src="out/main.js"></script>
 </body>
 
 </html>
