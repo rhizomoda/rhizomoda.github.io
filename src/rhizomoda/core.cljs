@@ -1,92 +1,71 @@
 (ns rhizomoda.core)
 
-;; (defn initialize-editor [el, filename]
-;;   (js/ace.edit))
+(def wallpapers ["fill-071"
+                 "fill-074"
+                 "fill-075"
+                 "fill-076"
+                 "fill-080"
+                 "fill-087"
+                 "fill-096"
+                 "fill-099"
+                 "fill-103"
+                 "fill-108"
+                 "fill-114"
+                 "fill-115"])
 
-;; function initializeEditor(el, filename) {
-;;   var editor = ace.edit(el, {
-;;     enableLinking: true,
-;;     enableMultiselect: false,
-;;     fontSize: 11,
-;;     mode: 'ace/mode/rhizomoda',
-;;     printMargin: 34,
-;;     scrollPastEnd: 1,
-;;     showLineNumbers: false,
-;;     tabSize: 2,
-;;     theme: 'ace/theme/ambiance',
-;;     useSoftTabs: false,
-;;     wrap: 34
-;;   });
-;;   var document = localStorage.getItem(filename);
-;;   var session = editor.getSession();
-;;   if (typeof document == 'string') {
-;;     // save backup
-;;     localStorage.setItem(filename + Date.now(), document);
-;;     // load
-;;     session.setValue(document);
-;;   }
-;;   session.on('change', function () {
-;;     // autosave
-;;     localStorage.setItem(filename, session.getValue());
-;;   });
-;;   editor.on('linkClick', function (data) {
-;;     if (data && data.token && data.token.type == 'link') {
-;;       // open link
-;;       window.open(data.token.value, '_blank');
-;;     }
-;;   });
-;; }
-;; document.addEventListener('keydown', function (e) {
-;;   if ((e.ctrlKey || e.metaKey) && e.key === 's') {
-;;     // prevent ctrl s
-;;     e.preventDefault();
-;;   }
-;; });
+(.add js/document.body.classList (rand-nth wallpapers))
 
-;; select an HTML element
-(defn query-selector [selectors]
-  (. js/document querySelector selectors))
+(defn initialize-editor [el, filename]
+  (let [editor
+        (.edit js/ace el
+               (clj->js
+                {:enableLinking true
+                 :enableMultiselect false
+                 :fontSize 11
+                 ;:mode "ace/mode/rhizomoda"
+                 :printMargin 34
+                 :scrollPastEnd 1
+                 :showLineNumbers false
+                 :tabSize 2
+                 :theme "ace/theme/ambiance"
+                 :wrap 34}))
+        document (.getItem js/localStorage filename)
+        session (.getSession editor)]
+    (when (string? document)
+      (.setItem js/localStorage (+ filename (.now js/Date)) document)
+      (.setValue session document))
+    (.on session "change"
+         #(.setItem js/localStorage filename (.getValue session)))
+    (.on editor "linkClick"
+         (fn [data]
+           (when data
+             (when-let [token (.-token data)]
+               (when (= (.-type token) "link")
+                 (.open js/window (.-value token) "_blank"))))))))
 
-;; toggle show or hide
-(defn show-hide [selectors]
-  (-> (query-selector selectors) (.-classList) (.toggle "hidden")))
+(initialize-editor "primary-editor" "index.document")
+(initialize-editor "secondary-editor" "moda.document")
+(initialize-editor "tertiary-editor" "rhizo.document")
 
-;; initialize the menu bar
-(new js/MenuBar
-     (query-selector "#menu-bar")
-     (clj->js [{:text "Widgets"
-                :subMenuItems
-                [{:text "VirtualSky"
-                  :handler #(show-hide "#virtual-sky-widget")}]}]))
+(def S #(.querySelector js/document %))
 
-;; background image classes from CSS
-(def wallpaper ["fill-071"
-                "fill-074"
-                "fill-075"
-                "fill-076"
-                "fill-080"
-                "fill-087"
-                "fill-096"
-                "fill-099"
-                "fill-103"
-                "fill-108"
-                "fill-114"
-                "fill-115"])
+(defn toggle-hidden [el] #(-> el .-classList (.toggle "hidden")))
 
-;; apply a random wallpaper
-(. js/document.body.classList add (rand-nth wallpaper))
+(new js/MenuBar (S "#menu-bar")
+     (clj->js
+      [{:text "Widgets"
+        :subMenuItems
+        [{:text "VirtualSky"
+          :handler (toggle-hidden (S "#virtual-sky-widget"))}]}]))
 
-;; preparer des questions
-;; je cherche des relations en personne avec mes coworkers
+(defn prevent-save-dialog [e]
+  (let [ctrl (.-ctrlKey e)
+        meta (.-metaKey e)
+        char (.-key e)
+        is-save-key (and (or ctrl meta) (= char "s"))]
+    (when is-save-key (.preventDefault e))))
 
-;; ask for redacted invite
-
-;; Awareness, intention & Meditation.
-
-;; get tested
-;; go to the doctor
-
-;; get stuff from Walling and Spotify
+(.addEventListener js/document "keydown" prevent-save-dialog)
 
 ;; ace.define(
 ;;   'ace/mode/rhizomoda',
