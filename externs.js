@@ -8,8 +8,10 @@ var Editor;
  */
 Editor.prototype.getSession = function () {};
 var ace = {
+    define: function () {},
     /**
      * @return Editor
      */
-    edit: function () {}
+    edit: function () {},
+    require: function () {}
 };

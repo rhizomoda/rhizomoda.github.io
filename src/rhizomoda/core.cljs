@@ -17,8 +17,9 @@
         content (.getItem js/localStorage key)
         session (.getSession editor)]
     (when (string? content)
-      (.setItem js/localStorage (str key (.now js/Date)) content)
-      (.setValue session content))
+      (.setValue session content)
+      (let [backup-key (str key \. (.now js/Date))]
+        (.setItem js/localStorage backup-key content)))
     (.on session "change"
          #(.setItem js/localStorage key (.getValue session)))
     (.on editor "linkClick"

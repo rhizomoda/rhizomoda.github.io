@@ -1,5 +1,5 @@
-.clj-kondo
-.cpcache
-.lsp
-out/*
-!out/main.js
+/.clj-kondo
+/.cpcache
+/.lsp
+/out/*
+!/out/main.js
