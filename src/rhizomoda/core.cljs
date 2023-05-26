@@ -1,41 +1,26 @@
 (ns rhizomoda.core)
 
-(def wallpapers ["fill-071"
-                 "fill-074"
-                 "fill-075"
-                 "fill-076"
-                 "fill-080"
-                 "fill-087"
-                 "fill-096"
-                 "fill-099"
-                 "fill-103"
-                 "fill-108"
-                 "fill-114"
-                 "fill-115"])
-
-(.add js/document.body.classList (rand-nth wallpapers))
-
-(defn initialize-editor [el, filename]
+(defn initialize-editor [el, key]
   (let [editor
         (.edit js/ace el
                (clj->js
                 {:enableLinking true
                  :enableMultiselect false
-                 :fontSize 11
+                 :fontSize 16
                  ;:mode "ace/mode/rhizomoda"
-                 :printMargin 34
+                 :printMargin 62
                  :scrollPastEnd 1
                  :showLineNumbers false
                  :tabSize 2
                  :theme "ace/theme/ambiance"
-                 :wrap 34}))
-        document (.getItem js/localStorage filename)
+                 :wrap 62}))
+        content (.getItem js/localStorage key)
         session (.getSession editor)]
-    (when (string? document)
-      (.setItem js/localStorage (+ filename (.now js/Date)) document)
-      (.setValue session document))
+    (when (string? content)
+      (.setItem js/localStorage (str key (.now js/Date)) content)
+      (.setValue session content))
     (.on session "change"
-         #(.setItem js/localStorage filename (.getValue session)))
+         #(.setItem js/localStorage key (.getValue session)))
     (.on editor "linkClick"
          (fn [data]
            (when data
@@ -47,25 +32,14 @@
 (initialize-editor "secondary-editor" "moda.document")
 (initialize-editor "tertiary-editor" "rhizo.document")
 
-(def S #(.querySelector js/document %))
-
-(defn toggle-hidden [el] #(-> el .-classList (.toggle "hidden")))
-
-(new js/MenuBar (S "#menu-bar")
-     (clj->js
-      [{:text "Widgets"
-        :subMenuItems
-        [{:text "VirtualSky"
-          :handler (toggle-hidden (S "#virtual-sky-widget"))}]}]))
-
-(defn prevent-save-dialog [e]
-  (let [ctrl (.-ctrlKey e)
-        meta (.-metaKey e)
-        char (.-key e)
-        is-save-key (and (or ctrl meta) (= char "s"))]
-    (when is-save-key (.preventDefault e))))
-
-(.addEventListener js/document "keydown" prevent-save-dialog)
+(.addEventListener
+ js/document "keydown"
+ (fn [e]
+   (let [ctrl (.-ctrlKey e)
+         meta (.-metaKey e)
+         char (.-key e)
+         is-save-key (and (or ctrl meta) (= char "s"))]
+     (when is-save-key (.preventDefault e)))))
 
 ;; ace.define(
 ;;   'ace/mode/rhizomoda',

@@ -1,5 +1,5 @@
-{:main rhizomoda.core
- :output-to "out/main.js"
+{:externs ["externs.js"]
+ :main rhizomoda.core
+ :optimizations :advanced
  :output-dir "out"
- :externs ["externs.js"]
- :optimizations :advanced}
+ :output-to "out/main.js"}

@@ -15,7 +15,3 @@ var ace = {
     edit: function () {},
     require: function () {}
 };
-/**
- * @constructor
- */
-function MenuBar() {}
