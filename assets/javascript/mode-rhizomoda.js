@@ -18,7 +18,7 @@ ace.define(
           regex: /(IDEA|IN PROGRESS|MAYBE|NOTE|TODO|URL|WAITING FOR)[.!?,:;]+/
         }, {
           token: 'string',
-          regex: /(DONE|PROJECT|QUESTION|SECTION|TOPIC)[.!?,:;]+/
+          regex: /(DONE|PROJECT|QUESTION|SECTION|SUBJECT|TOPIC)[.!?,:;]+/
         }, {
           token: 'link',
           regex: /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
