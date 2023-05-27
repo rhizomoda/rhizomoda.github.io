@@ -15,7 +15,7 @@ ace.define(
       this.$rules = {
         'start': [{
           token: 'keyword',
-          regex: /(IN PROGRESS|MAYBE|NOTE|TODO|URL|WAITING FOR)[.!?,:;]+/
+          regex: /(IDEA|IN PROGRESS|MAYBE|NOTE|TODO|URL|WAITING FOR)[.!?,:;]+/
         }, {
           token: 'string',
           regex: /(DONE|PROJECT|QUESTION|SECTION|TOPIC)[.!?,:;]+/
