@@ -39,5 +39,5 @@
    (let [ctrl (.-ctrlKey e)
          meta (.-metaKey e)
          char (.-key e)
-         is-save-key (and (or ctrl meta) (= char "s"))]
+         is-save-key (and (or ctrl meta) (= char \s))]
      (when is-save-key (.preventDefault e)))))
