@@ -15,10 +15,10 @@ ace.define(
       this.$rules = {
         "start": [{
           token: "keyword",
-          regex: /(IDEA|MAYBE|TODO|WAITING FOR)[.!?,:;]+/
+          regex: /(IDEA|MAYBE|STEP|TODO|WAITING FOR)[.!?,:;]+/
         }, {
           token: "string",
-          regex: /(QUESTION|SYSTEM)[.!?,:;]+/
+          regex: /(QUESTION)[.!?,:;]+/
         }, {
           token: "constant",
           regex: /(NOTE)[.!?,:;]+/
@@ -33,7 +33,7 @@ ace.define(
           regex: /(SECTION)[.!?,:;]+/
         }, {
           token: "constant.numeric",
-          regex: /(PROJECT)[.!?,:;]+/
+          regex: /(PROJECT|SYSTEM)[.!?,:;]+/
         }, {
           token: "keyword.operator",
           regex: /(DONE)[.!?,:;]+/
