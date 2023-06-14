@@ -15,31 +15,22 @@ ace.define(
       this.$rules = {
         "start": [{
           token: "keyword",
-          regex: /(IDEA|MAYBE|STEP|TODO|WAITING FOR)[.!?,:;]+/
-        }, {
-          token: "string",
-          regex: /(QUESTION)[.!?,:;]+/
+          regex: /(HABIT|MAYBE|TODO|WAITING FOR)[.!?,:;]+/
         }, {
           token: "constant",
           regex: /(NOTE)[.!?,:;]+/
         }, {
           token: "support.function",
-          regex: /(IN PROGRESS)[.!?,:;]+/
-        }, {
-          token: "support.class",
-          regex: /(ITEM|LINK)[.!?,:;]+/
-        }, {
-          token: "variable.parameter",
-          regex: /(SECTION)[.!?,:;]+/
+          regex: /(IN PROGRESS|NEXT)[.!?,:;]+/
         }, {
           token: "constant.numeric",
-          regex: /(PROJECT|SYSTEM)[.!?,:;]+/
+          regex: /(IDEA|QUESTION)[.!?,:;]+/
         }, {
           token: "keyword.operator",
           regex: /(DONE)[.!?,:;]+/
         }, {
           token: "support.type",
-          regex: /(TOPIC)[.!?,:;]+/
+          regex: /(ITEM|LINK|PROJECT|SECTION|SYSTEM|TOPIC)[.!?,:;]+/
         }, {
           token: "link",
           regex: /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
