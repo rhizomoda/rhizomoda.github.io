@@ -24,7 +24,7 @@ ace.define(
           regex: /(IN PROGRESS|NEXT)[.!?,:;]+/
         }, {
           token: "constant.numeric",
-          regex: /(IDEA|QUESTION)[.!?,:;]+/
+          regex: /(IDEA|QUESTION|QUOTE)[.!?,:;]+/
         }, {
           token: "keyword.operator",
           regex: /(DONE)[.!?,:;]+/
