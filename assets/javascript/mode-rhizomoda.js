@@ -15,7 +15,7 @@ ace.define(
       this.$rules = {
         "start": [{
           token: "keyword",
-          regex: /(HABIT|MAYBE|TODO|WAITING FOR)[.!?,:;]+/
+          regex: /(DAILY|HABIT|MAYBE|TODO|WAITING FOR|WEEKLY)[.!?,:;]+/
         }, {
           token: "constant",
           regex: /(NOTE)[.!?,:;]+/
