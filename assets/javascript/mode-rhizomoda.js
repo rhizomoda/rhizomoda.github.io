@@ -21,7 +21,7 @@ ace.define(
           regex: /(NOTE)[.!?,:;]+/
         }, {
           token: "support.function",
-          regex: /(IN PROGRESS|NEXT)[.!?,:;]+/
+          regex: /(IN PROGRESS|NEXT|REMEMBER)[.!?,:;]+/
         }, {
           token: "constant.numeric",
           regex: /(HAPPENING|IDEA|QUESTION|QUOTE)[.!?,:;]+/
