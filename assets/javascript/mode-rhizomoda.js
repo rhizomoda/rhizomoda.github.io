@@ -14,23 +14,14 @@ ace.define(
     function HighlightRules() {
       this.$rules = {
         "start": [{
-          token: "keyword",
-          regex: /(DAILY|HABIT|MAYBE|TODO|WAITING FOR|WEEKLY)[.!?,:;]+/
-        }, {
-          token: "constant",
-          regex: /(NOTE)[.!?,:;]+/
-        }, {
           token: "support.function",
-          regex: /(IN PROGRESS|NEXT|REMEMBER)[.!?,:;]+/
+          regex: /(DAILY|HABIT|IN PROGRESS|MAYBE|NEXT|REMEMBER|TODO|WAITING FOR|WEEKLY)[.!?,:;]+/
         }, {
           token: "constant.numeric",
-          regex: /(HAPPENING|IDEA|QUESTION|QUOTE)[.!?,:;]+/
-        }, {
-          token: "keyword.operator",
           regex: /(DONE)[.!?,:;]+/
         }, {
           token: "support.type",
-          regex: /(ITEM|LINK|PROJECT|SECTION|SYSTEM|TOPIC)[.!?,:;]+/
+          regex: /(IDEA|ITEM|LINK|NOTE|PROJECT|QUESTION|QUOTE|SECTION|SYSTEM|TOPIC)[.!?,:;]+/
         }, {
           token: "link",
           regex: /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
