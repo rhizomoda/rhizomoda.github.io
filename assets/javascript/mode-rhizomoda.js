@@ -15,7 +15,7 @@ ace.define(
       this.$rules = {
         "start": [{
           token: "support.function",
-          regex: /(DAILY|HABIT|IN PROGRESS|MAYBE|NEXT|REMEMBER|TODO|WAITING FOR|WEEKLY)[.!?,:;]+/
+          regex: /(DAILY|HABIT|IN\.PROGRESS|MAYBE|NEXT|REMEMBER|TODO|WAITING\.FOR|WEEKLY)[.!?,:;]+/
         }, {
           token: "constant.numeric",
           regex: /(DONE)[.!?,:;]+([0-9]+[.!?,:;]+TIMES?[.!?,:;]+)?/
