@@ -18,7 +18,7 @@ ace.define(
           regex: /(DAILY|HABIT|IN PROGRESS|MAYBE|NEXT|REMEMBER|TODO|WAITING FOR|WEEKLY)[.!?,:;]+/
         }, {
           token: "constant.numeric",
-          regex: /(DONE)[.!?,:;]+/
+          regex: /(DONE)[.!?,:;]+([0-9]+[.!?,:;]+TIMES?[.!?,:;]+)?/
         }, {
           token: "support.type",
           regex: /(IDEA|ITEM|LINK|NOTE|PROJECT|QUESTION|QUOTE|SECTION|SYSTEM|TOPIC)[.!?,:;]+/
