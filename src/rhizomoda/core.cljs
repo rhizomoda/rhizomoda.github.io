@@ -11,7 +11,7 @@
                  :printMargin 62
                  :scrollPastEnd 1
                  :showLineNumbers false
-                 :tabSize 2
+                 :tabSize 1
                  :theme "ace/theme/ambiance"
                  :wrap 62}))
         content (.getItem js/localStorage key)
