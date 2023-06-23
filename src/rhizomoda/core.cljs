@@ -8,12 +8,12 @@
                  :enableMultiselect false
                  :fontSize 16
                  :mode "ace/mode/rhizomoda"
-                 :printMargin 62
+                 :printMargin 61
                  :scrollPastEnd 1
                  :showLineNumbers false
                  :tabSize 1
                  :theme "ace/theme/ambiance"
-                 :wrap 62}))
+                 :wrap 61}))
         content (.getItem js/localStorage key)
         session (.getSession editor)]
     (when (string? content)
