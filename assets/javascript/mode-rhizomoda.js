@@ -24,7 +24,7 @@ ace.define(
           regex: /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
         }, {
           token: "support.function",
-          regex: /(DAILY|HABIT|IN\.PROGRESS|MAYBE|NEXT|REMEMBER|TODO|WAITING\.FOR|WEEKLY)[.!?,:;]+/
+          regex: /(DAILY|HABIT|IN\.PROGRESS|LEARN|MAYBE|NEXT|REMEMBER|TODO|WAITING\.FOR|WEEKLY)[.!?,:;]+/
         }, {
           token: "support.type",
           regex: /(IDEA|ITEM|LINK|NOTE|PROJECT|QUESTION|QUOTE|SECTION|SYSTEM|TOPIC)[.!?,:;]+/
