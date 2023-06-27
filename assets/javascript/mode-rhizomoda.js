@@ -15,10 +15,10 @@ ace.define(
       this.$rules = {
         "start": [{
           token: "constant",
-          regex: /([0-9]{4}\.)?[0-9]{2}\.[0-9]{2}\./
+          regex: /([0-9]{4}\.)?[0-9]{2}\.[0-9]{2}[.!?:]+/
         }, {
           token: "constant.numeric",
-          regex: /(DONE|[0-9]+\.STREAK)\./
+          regex: /(DONE|[0-9]+\.STREAK)[.!?:]+/
         }, {
           token: "link",
           regex: /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
@@ -27,10 +27,10 @@ ace.define(
           regex: "^\\s*>.*$"
         }, {
           token: "support.function",
-          regex: /(DAILY|HABIT|IN\.PROGRESS|LEARN|MAYBE|NEXT|REMEMBER|TODO|WAITING\.FOR|WEEKLY)\./
+          regex: /(DAILY|HABIT|IN\.PROGRESS|LEARN|MAYBE|NEXT|REMEMBER|TODO|WAITING\.FOR|WEEKLY)[.!?:]+/
         }, {
           token: "support.type",
-          regex: /(IDEA|ITEM|LINK|NOTE|PROJECT|QUESTION|QUOTE|SECTION|SYSTEM|TOPIC)\./
+          regex: /(IDEA|ITEM|LINK|NOTE|PROJECT|QUESTION|QUOTE|SECTION|SYSTEM|TOPIC)[.!?:]+/
         }]
       };
       this.normalizeRules();
