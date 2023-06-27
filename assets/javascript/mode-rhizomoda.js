@@ -14,9 +14,6 @@ ace.define(
     function HighlightRules() {
       this.$rules = {
         "start": [{
-          token: "comment",
-          regex: "^\\s*>.*$"
-        }, {
           token: "constant",
           regex: /([0-9]{4}\.)?[0-9]{2}\.[0-9]{2}\./
         }, {
@@ -25,6 +22,9 @@ ace.define(
         }, {
           token: "link",
           regex: /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
+        }, {
+          token: "string",
+          regex: "^\\s*>.*$"
         }, {
           token: "support.function",
           regex: /(DAILY|HABIT|IN\.PROGRESS|LEARN|MAYBE|NEXT|REMEMBER|TODO|WAITING\.FOR|WEEKLY)\./
