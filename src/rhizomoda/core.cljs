@@ -4,7 +4,8 @@
   (let [editor
         (.edit js/ace el
                (clj->js
-                {:enableLinking true
+                {:displayIndentGuides false
+                 :enableLinking true
                  :enableMultiselect false
                  :fontSize 16
                  :mode "ace/mode/rhizomoda"

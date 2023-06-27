@@ -14,6 +14,9 @@ ace.define(
     function HighlightRules() {
       this.$rules = {
         "start": [{
+          token: "comment",
+          regex: "^\\s*>.*$"
+        }, {
           token: "constant",
           regex: /([0-9]{4}\.)?[0-9]{2}\.[0-9]{2}\./
         }, {
